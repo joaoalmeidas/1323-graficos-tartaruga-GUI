@@ -8,6 +8,7 @@ public class App {
 		frame.setSize(1500, 700);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
+		frame.setResizable(false);
 		
 	}
 

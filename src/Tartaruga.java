@@ -1,4 +1,4 @@
-import javax.swing.JPanel;
+
 
 public class Tartaruga {
 	
@@ -27,9 +27,9 @@ public class Tartaruga {
 		super();
 		this.orientacao = Orientacao.DIREITA;
 		this.caneta = Caneta.BAIXO;
-		this.posicao = new int[2];
-		posicao[0] = 1;
-		posicao[0] = 1;
+		
+		int posicao[] = {50, 50};
+		this.posicao = posicao;
 		
 	}
 

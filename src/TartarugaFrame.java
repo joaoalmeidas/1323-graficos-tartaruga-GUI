@@ -33,6 +33,7 @@ public class TartarugaFrame extends JFrame {
 
 		botaoComandos = new JButton("Iniciar");
 		fieldComandos = new JTextField(50);
+		fieldComandos.setText("5, 100");
 		
 		panelListaComandos.add(new JLabel("1"));
 		panelListaComandos.add(new JLabel("Caneta para cima"));
@@ -65,8 +66,9 @@ public class TartarugaFrame extends JFrame {
 					comandos[i] = Integer.parseInt(comandosString[i]);
 					
 				}
-
+				remove(espacoTartaruga);
 				espacoTartaruga = new EspacoPanel(comandos);
+				espacoTartaruga.setBackground(Color.WHITE);
 				add(espacoTartaruga, BorderLayout.CENTER);
 				validate();
 				repaint();
