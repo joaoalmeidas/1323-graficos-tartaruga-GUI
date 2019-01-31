@@ -115,121 +115,25 @@ public class Tartaruga {
 		
 	}
 	
-	public JPanel moveTartaruga(JPanel quadrado, int espacos) {
+	public void moveTartaruga(int espacos) {
 		
-		
-		if(getCaneta() == Caneta.BAIXO) {
+		if(getOrientacao() == Orientacao.DESCE) {
 			
-			if(getOrientacao() == Orientacao.DESCE) {
+			getPosicao()[1] += espacos; 
+
+		}else if(getOrientacao() == Orientacao.SOBE) {
 				
-				if(espacos + getPosicao()[1] > quadrado.getHeight()) {
-					
-					quadrado.getGraphics().drawLine(getPosicao()[0], getPosicao()[1], getPosicao()[0], quadrado.getHeight());
-					
-				}else {
-					
-					quadrado.getGraphics().drawLine(getPosicao()[0], getPosicao()[1], getPosicao()[0], getPosicao()[1] + espacos);
-					getPosicao()[1] += espacos;
-					
-				}
+			getPosicao()[1] -= espacos; 
+
+		}else if(getOrientacao() == Orientacao.DIREITA) {
+							
+			getPosicao()[0] += espacos; 
 				
-			}else if(getOrientacao() == Orientacao.SOBE) {
-				
-				if(getPosicao()[1] - espacos < 0) {
-					
-					quadrado.getGraphics().drawLine(getPosicao()[0], getPosicao()[1], getPosicao()[0], 0);
-					
-				}else {
-					
-					quadrado.getGraphics().drawLine(getPosicao()[0], getPosicao()[1], getPosicao()[0], getPosicao()[1] - espacos);
-					getPosicao()[1] -= espacos;
-					
-				}
-				
-			}else if(getOrientacao() == Orientacao.DIREITA) {
-				
-				if(getPosicao()[0] + espacos > quadrado.getWidth()) {
-					
-					quadrado.getGraphics().drawLine(getPosicao()[0], getPosicao()[1], quadrado.getWidth(), getPosicao()[1]);
-					
-				}else {
-					
-					quadrado.getGraphics().drawLine(getPosicao()[0], getPosicao()[1], getPosicao()[0] + espacos, getPosicao()[1]);
-					getPosicao()[0] += espacos;
-					
-				}
-				
-			}else if(getOrientacao() == Orientacao.ESQUERDA) {
-				
-				if(getPosicao()[0] - espacos < 0) {
-					
-					quadrado.getGraphics().drawLine(getPosicao()[0], getPosicao()[1], 0, getPosicao()[1]);
-					
-				}else {
-					
-					quadrado.getGraphics().drawLine(getPosicao()[0], getPosicao()[1], getPosicao()[0] - espacos, getPosicao()[1]);
-					getPosicao()[0] -= espacos;
-					
-				}
-				
-			}
+		}else if(getOrientacao() == Orientacao.ESQUERDA) {
 			
-			
-		}else {
-			
-			if(getOrientacao() == Orientacao.DESCE) {
-				
-				if(espacos + getPosicao()[1] > quadrado.getHeight()) {
-					
-					getPosicao()[1] = quadrado.getHeight();
-					
-				}else {
-					
-					getPosicao()[1] += espacos; 
-					
-				}
-				
-			}else if(getOrientacao() == Orientacao.SOBE) {
-				
-				if(getPosicao()[1] - espacos < 0) {
-					
-					getPosicao()[1] = 0;
-					
-				}else {
-					
-					getPosicao()[1] -= espacos; 
-					
-				}
-				
-			}else if(getOrientacao() == Orientacao.DIREITA) {
-				
-				if(getPosicao()[0] + espacos > quadrado.getWidth()) {
-					
-					getPosicao()[0] = quadrado.getWidth();
-					
-				}else {
-					
-					getPosicao()[0] += espacos; 
-					
-				}
-				
-			}else if(getOrientacao() == Orientacao.ESQUERDA) {
-				
-				if(getPosicao()[0] - espacos < 0) {
-					
-					getPosicao()[0] = 0;
-					
-				}else {
-					
-					getPosicao()[0] -= espacos; 
-					
-				}
-				
-			}
+			getPosicao()[0] -= espacos; 
 			
 		}
-		
-		return quadrado;
 		
 	}
 
