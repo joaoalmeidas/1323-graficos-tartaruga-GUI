@@ -2,7 +2,7 @@
 
 public class Tartaruga {
 	
-	private enum Caneta{
+	public enum Caneta{
 		
 		CIMA, 
 		BAIXO;
@@ -134,6 +134,16 @@ public class Tartaruga {
 			getPosicao()[0] -= espacos; 
 			
 		}
+		
+	}
+	
+	public boolean isCanetaBaixo(){
+		
+		if(getCaneta() == Caneta.BAIXO ) {
+			return true;
+		}
+		
+		return false;
 		
 	}
 

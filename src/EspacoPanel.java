@@ -1,9 +1,8 @@
-import java.awt.Color;
 import java.awt.Graphics;
-import java.security.SecureRandom;
 import java.util.Arrays;
 
 import javax.swing.JPanel;
+
 
 
 public class EspacoPanel extends JPanel {
@@ -51,10 +50,16 @@ public class EspacoPanel extends JPanel {
 				
 			}else if(comandos[i] == 5) {
 				
-				final int pontoPartida[] = Arrays.copyOf(tartaruga.getPosicao(), tartaruga.getPosicao().length);
-				
+				final int pontoPartida[] = Arrays.copyOf(tartaruga.getPosicao(), tartaruga.getPosicao().length);	
 				tartaruga.moveTartaruga(comandos[++i]);
-				g.drawLine(pontoPartida[0], pontoPartida[1], tartaruga.getPosicao()[0], tartaruga.getPosicao()[1]);
+				
+				if(tartaruga.isCanetaBaixo()) {
+					
+					g.drawLine(pontoPartida[0], pontoPartida[1], tartaruga.getPosicao()[0], tartaruga.getPosicao()[1]);
+					
+				}
+				
+				
 				
 			}
 			
