@@ -35,16 +35,16 @@ public class TartarugaFrame extends JFrame {
 		fieldComandos = new JTextField(50);
 		fieldComandos.setText("5, 100");
 		
-		panelListaComandos.add(new JLabel("1"));
-		panelListaComandos.add(new JLabel("Caneta para cima"));
-		panelListaComandos.add(new JLabel("2"));
-		panelListaComandos.add(new JLabel("Caneta para baixo"));
-		panelListaComandos.add(new JLabel("3"));
-		panelListaComandos.add(new JLabel("Vira para a direita"));
-		panelListaComandos.add(new JLabel("4"));
-		panelListaComandos.add(new JLabel("Vira para a esquerda"));
-		panelListaComandos.add(new JLabel("5, n"));
-		panelListaComandos.add(new JLabel("Avançar n espaços"));
+		panelListaComandos.add(new JLabel("  1"));
+		panelListaComandos.add(new JLabel("Caneta para cima "));
+		panelListaComandos.add(new JLabel("  2"));
+		panelListaComandos.add(new JLabel("Caneta para baixo "));
+		panelListaComandos.add(new JLabel("  3"));
+		panelListaComandos.add(new JLabel("Vira para a direita "));
+		panelListaComandos.add(new JLabel("  4"));
+		panelListaComandos.add(new JLabel("Vira para a esquerda "));
+		panelListaComandos.add(new JLabel("  5, n"));
+		panelListaComandos.add(new JLabel("Avançar n pixels "));
 		
 		panelComandos.add(fieldComandos);
 		panelComandos.add(botaoComandos);
