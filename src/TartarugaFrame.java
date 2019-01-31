@@ -2,6 +2,8 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -13,15 +15,14 @@ public class TartarugaFrame extends JFrame {
 	
 	private final JPanel panelListaComandos;
 	private final JPanel panelComandos;
-	private final JPanel panelTartaruga;
+	private JPanel panelTartaruga;
 	
 	private final JButton botaoComandos;
 	
 	private final JTextField fieldComandos;
 	
 	private int[] comandos;
-	
-	private int tamanhoComandos = 0;
+	private String[] comandosString;
 	
 	public TartarugaFrame() {
 		
@@ -43,40 +44,35 @@ public class TartarugaFrame extends JFrame {
 		panelListaComandos.add(new JLabel("Vira para a esquerda"));
 		panelListaComandos.add(new JLabel("5, n"));
 		panelListaComandos.add(new JLabel("Avançar n espaços"));
-		panelListaComandos.setSize(50, 50);
 		
-		/*
-		
-		for(int i = 0; i < fieldComandos.getText().length(); i++) {
-			
-			if(Character.isDigit(fieldComandos.getText().charAt(i))) {
-				
-				tamanhoComandos++;
-				
-			}
-			
-		}
-		
-		comandos = new int[tamanhoComandos];
-		
-		for(int i = 0; i < comandos.length; i++) {
-			
-			if(Character.isDigit(fieldComandos.getText().charAt(i))) {
-				
-				comandos[i] = fieldComandos.getText().charAt(i);
-				
-			}
-			
-		}
-		
-		tartarugaPanel = new EspacoPanel(comandos);
-		*/
 		panelComandos.add(fieldComandos);
 		panelComandos.add(botaoComandos);
 		
 		add(panelComandos, BorderLayout.NORTH);
 		add(panelListaComandos, BorderLayout.WEST);
 		add(panelTartaruga, BorderLayout.CENTER);
+		
+		botaoComandos.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				comandosString = fieldComandos.getText().split(", ");
+				comandos = new int[comandosString.length];
+				
+				for(int i = 0; i < comandos.length; i++) {
+					
+					comandos[i] = Integer.parseInt(comandosString[i]);
+					
+				}
+
+				panelTartaruga = new EspacoPanel(comandos);
+				add(panelTartaruga, BorderLayout.CENTER);
+				repaint();
+				panelTartaruga.repaint();
+			}
+			
+		});
 	}
 	
 }

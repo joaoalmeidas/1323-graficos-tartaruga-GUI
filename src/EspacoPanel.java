@@ -13,9 +13,12 @@ public class EspacoPanel extends JPanel {
 		this.comandos = comandos;
 	}
 	
-	
-	
 	public void paintComponent(Graphics g) {
+		
+		super.paintComponent(g);
+		
+		System.out.println("teste");
+
 		
 	}
 	
