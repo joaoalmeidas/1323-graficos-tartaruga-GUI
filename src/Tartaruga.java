@@ -28,7 +28,7 @@ public class Tartaruga {
 		this.orientacao = Orientacao.DIREITA;
 		this.caneta = Caneta.BAIXO;
 		
-		int posicao[] = {50, 50};
+		int posicao[] = {0, 0};
 		this.posicao = posicao;
 		
 	}
@@ -115,24 +115,56 @@ public class Tartaruga {
 		
 	}
 	
-	public void moveTartaruga(int espacos) {
+	public void moveTartaruga(int espacos, int largura, int altura) {
 		
 		if(getOrientacao() == Orientacao.DESCE) {
 			
-			getPosicao()[1] += espacos; 
-
-		}else if(getOrientacao() == Orientacao.SOBE) {
+			if(espacos + getPosicao()[1] >= altura) {
 				
-			getPosicao()[1] -= espacos; 
-
+				getPosicao()[1] = altura - 1;
+				
+			}else {
+				
+				getPosicao()[1] += espacos; 
+				
+			}
+			
+		}else if(getOrientacao() == Orientacao.SOBE) {
+			
+			if(getPosicao()[1] - espacos < 0) {
+				
+				getPosicao()[1] = 0;
+				
+			}else {
+				
+				getPosicao()[1] -= espacos;  
+				
+			}
+				
 		}else if(getOrientacao() == Orientacao.DIREITA) {
 							
-			getPosicao()[0] += espacos; 
+			if(espacos + getPosicao()[0] >= largura) {
+				
+				getPosicao()[0] = largura - 1;
+				
+			}else {
+				
+				getPosicao()[0] += espacos; 
+				
+			}
 				
 		}else if(getOrientacao() == Orientacao.ESQUERDA) {
 			
-			getPosicao()[0] -= espacos; 
-			
+			if(getPosicao()[0] - espacos < 0) {
+				
+				getPosicao()[0] = 0;
+				
+			}else {
+				
+				getPosicao()[0] -= espacos; 
+				
+			}
+		
 		}
 		
 	}

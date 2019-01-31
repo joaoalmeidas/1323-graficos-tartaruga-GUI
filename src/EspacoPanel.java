@@ -51,7 +51,8 @@ public class EspacoPanel extends JPanel {
 			}else if(comandos[i] == 5) {
 				
 				final int pontoPartida[] = Arrays.copyOf(tartaruga.getPosicao(), tartaruga.getPosicao().length);	
-				tartaruga.moveTartaruga(comandos[++i]);
+				
+				tartaruga.moveTartaruga(comandos[++i], getWidth(), getHeight());
 				
 				if(tartaruga.isCanetaBaixo()) {
 					
