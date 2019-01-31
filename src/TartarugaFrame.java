@@ -15,7 +15,7 @@ public class TartarugaFrame extends JFrame {
 	
 	private final JPanel panelListaComandos;
 	private final JPanel panelComandos;
-	private JPanel panelTartaruga;
+	private EspacoPanel espacoTartaruga;
 	
 	private final JButton botaoComandos;
 	
@@ -28,9 +28,9 @@ public class TartarugaFrame extends JFrame {
 		
 		panelListaComandos = new JPanel(new GridLayout(7, 2));
 		panelComandos = new JPanel(new FlowLayout());
-		panelTartaruga = new JPanel();
-		panelTartaruga.setBackground(Color.WHITE);
-		
+		espacoTartaruga = new EspacoPanel();
+		espacoTartaruga.setBackground(Color.WHITE);
+
 		botaoComandos = new JButton("Iniciar");
 		fieldComandos = new JTextField(50);
 		
@@ -50,7 +50,7 @@ public class TartarugaFrame extends JFrame {
 		
 		add(panelComandos, BorderLayout.NORTH);
 		add(panelListaComandos, BorderLayout.WEST);
-		add(panelTartaruga, BorderLayout.CENTER);
+		add(espacoTartaruga, BorderLayout.CENTER);
 		
 		botaoComandos.addActionListener(new ActionListener() {
 
@@ -66,13 +66,14 @@ public class TartarugaFrame extends JFrame {
 					
 				}
 
-				panelTartaruga = new EspacoPanel(comandos);
-				add(panelTartaruga, BorderLayout.CENTER);
+				espacoTartaruga = new EspacoPanel(comandos);
+				add(espacoTartaruga, BorderLayout.CENTER);
+				validate();
 				repaint();
-				panelTartaruga.repaint();
 			}
 			
 		});
+		
 	}
 	
 }

@@ -1,5 +1,6 @@
 import java.awt.Color;
 import java.awt.Graphics;
+import java.security.SecureRandom;
 
 import javax.swing.JPanel;
 
@@ -7,6 +8,11 @@ public class EspacoPanel extends JPanel {
 	
 	
 	private int[] comandos;
+	
+	public EspacoPanel() {
+		super();
+		this.comandos = null;
+	}
 
 	public EspacoPanel(int[] comandos) {
 		super();
@@ -16,9 +22,6 @@ public class EspacoPanel extends JPanel {
 	public void paintComponent(Graphics g) {
 		
 		super.paintComponent(g);
-		
-		System.out.println("teste");
-
 		
 	}
 	
