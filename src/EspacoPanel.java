@@ -1,4 +1,6 @@
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Line2D;
 import java.util.Arrays;
 
 import javax.swing.JPanel;
@@ -25,6 +27,7 @@ public class EspacoPanel extends JPanel {
 
 		
 		super.paintComponent(g);
+		Graphics2D g2d = (Graphics2D) g; 
 		
 		tartaruga.voltaEstadoInicial();
 		
@@ -58,8 +61,8 @@ public class EspacoPanel extends JPanel {
 				
 				if(tartaruga.isCanetaBaixo()) {
 					
-					g.drawLine(pontoPartida[0], pontoPartida[1], tartaruga.getPosicao()[0], tartaruga.getPosicao()[1]);
-					
+					//g.drawLine(pontoPartida[0], pontoPartida[1], tartaruga.getPosicao()[0], tartaruga.getPosicao()[1]);
+					g2d.draw(new Line2D.Double(pontoPartida[0], pontoPartida[1], tartaruga.getPosicao()[0], tartaruga.getPosicao()[1]));
 				}
 				
 				
