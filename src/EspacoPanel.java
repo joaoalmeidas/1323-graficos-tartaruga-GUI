@@ -5,19 +5,13 @@ import javax.swing.JPanel;
 
 
 
+
 public class EspacoPanel extends JPanel {
 	
 	
 	private int[] comandos;
 	private Tartaruga tartaruga;
 	
-	public EspacoPanel() {
-		
-		super();
-		this.comandos = new int[0];
-		tartaruga = new Tartaruga();
-		
-	}
 
 	public EspacoPanel(int[] comandos) {
 		super();
@@ -25,28 +19,36 @@ public class EspacoPanel extends JPanel {
 		tartaruga = new Tartaruga();
 	}
 	
+	@Override 
 	public void paintComponent(Graphics g) {
+		
+
 		
 		super.paintComponent(g);
 		
+		tartaruga.voltaEstadoInicial();
+		
 		for(int i = 0; i < comandos.length; i++) {
-			
 			
 			if(comandos[i] == 1) {
 				
 				tartaruga.viraCanetaParaCima();
+
 				
 			}else if(comandos[i] == 2) {
 				
 				tartaruga.viraCanetaParaBaixo();
+
 				
 			}else if(comandos[i] == 3) {
 				
 				tartaruga.viraTartarugaParaDireita();
+
 				
 			}else if(comandos[i] == 4) {
 				
 				tartaruga.viraTartarugaParaEsquerda();
+
 				
 			}else if(comandos[i] == 5) {
 				
@@ -61,12 +63,52 @@ public class EspacoPanel extends JPanel {
 				}
 				
 				
-				
 			}
-			
+
 		}
+	
+
+		
 		
 	}
+	
+	public String retornaStringPosicao() {
+		
+		
+		return String.format("(%d, %d)", tartaruga.getPosicao()[0], tartaruga.getPosicao()[1]);
+		
+	}
+	
+	public String retornaStringCaneta() {
+		
+		return String.format("%s", tartaruga.getCaneta());
+		
+	}
+	
+	public String retornaStringOrientaacao() {
+		
+		return String.format("%s", tartaruga.getOrientacao());
+		
+	}
+
+	public Tartaruga getTartaruga() {
+		return tartaruga;
+	}
+
+	public void setTartaruga(Tartaruga tartaruga) {
+		this.tartaruga = tartaruga;
+	}
+
+	public int[] getComandos() {
+		return comandos;
+	}
+
+	public void setComandos(int[] comandos) {
+		this.comandos = comandos;
+	}
+	
+	
+	
 	
 	
 }

@@ -8,7 +8,7 @@ public class Tartaruga {
 		BAIXO;
 	}
 	
-	private enum Orientacao{
+	public enum Orientacao{
 		
 		DIREITA, 
 		ESQUERDA,
@@ -176,6 +176,15 @@ public class Tartaruga {
 		}
 		
 		return false;
+		
+	}
+	
+	public void voltaEstadoInicial() {
+		
+		setCaneta(Caneta.BAIXO);
+		setOrientacao(Orientacao.DIREITA);
+		getPosicao()[0] = 0;
+		getPosicao()[1] = 0;
 		
 	}
 
